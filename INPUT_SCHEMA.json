@@ -6,47 +6,59 @@
     "startCompanyId": {
       "title": "Start company ID",
       "type": "integer",
+      "description": "First numeric f_C value to test.",
       "minimum": 1,
       "default": 1
     },
     "endCompanyId": {
       "title": "End company ID",
       "type": "integer",
+      "description": "Last numeric f_C value to test.",
       "minimum": 1,
       "default": 100
     },
     "geoId": {
       "title": "geoId",
       "type": "integer",
+      "description": "LinkedIn geoId value.",
       "default": 102713980
     },
     "fTPR": {
       "title": "f_TPR",
       "type": "string",
+      "description": "Time filter (e.g. r86400 for 1 day, r604800 for 1 week).",
       "default": "r604800",
       "editor": "textfield"
     },
     "keywords": {
       "title": "Keywords",
       "type": "string",
+      "description": "Search keywords (optional).",
       "default": "",
       "editor": "textfield"
     },
     "location": {
       "title": "Location",
       "type": "string",
+      "description": "Location string (e.g. India, Pune).",
       "default": "India",
       "editor": "textfield"
     },
     "maxConcurrency": {
       "title": "Max concurrency",
       "type": "integer",
-      "default": 1
+      "description": "Number of parallel browser pages (keep low for LinkedIn).",
+      "default": 1,
+      "minimum": 1,
+      "maximum": 5
     },
     "requestTimeoutSecs": {
       "title": "Request timeout (seconds)",
       "type": "integer",
-      "default": 60
+      "description": "Maximum time to wait for page load.",
+      "default": 60,
+      "minimum": 10,
+      "maximum": 300
     }
   },
   "required": ["startCompanyId", "endCompanyId"]
