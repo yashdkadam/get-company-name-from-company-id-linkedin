@@ -1,0 +1,14 @@
+{
+  "name": "linkedin-company-name-actor",
+  "version": "1.0.0",
+  "description": "Apify Actor to fetch LinkedIn company names from f_C company IDs",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.3.2",
+    "crawlee": "^3.15.3"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "linkedin-company-name-actor",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "main": "src/main.js"
+}
