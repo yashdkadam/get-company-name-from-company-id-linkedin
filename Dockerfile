@@ -1,20 +1,26 @@
-# Use Apify base image with Node.js + Playwright support
+# Use Apify Playwright image
 FROM apify/actor-node-playwright-chrome:20
+
+# Switch to root to install deps
+USER root
 
 # Set working directory
 WORKDIR /usr/src/app
 
-# Copy package files first (better caching)
+# Copy package files
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install --omit=dev --no-audit --no-fund
 
-# Copy the rest of the source code
+# Copy rest of code
 COPY . ./
 
-# Build step (if needed in future)
-# RUN npm run build
+# Fix ownership so non-root user can access files
+RUN chown -R myuser:myuser /usr/src/app
 
-# Run the actor
+# Switch back to non-root (important for Apify)
+USER myuser
+
+# Run actor
 CMD ["npm", "start"]
